@@ -1,0 +1,22 @@
+{
+  "name": "l3-w1-d5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aethdae/l3-w1-d5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Aethdae/l3-w1-d5/issues"
+  },
+  "homepage": "https://github.com/Aethdae/l3-w1-d5#readme"
+}
