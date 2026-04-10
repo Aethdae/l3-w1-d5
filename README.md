@@ -1,5 +1,7 @@
 # Read/Write terminal file
 
+A small terminal app to add content to a file, and can read files given their path.
+
 ## Usage:
 
 ```
