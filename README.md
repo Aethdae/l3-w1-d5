@@ -19,10 +19,10 @@ append (alias: a) "string"
 Appends input string to the output file.
 
 ```
-read (alias: r) "path"
+read (alias: r) "path" (Default: output.txt)
 ```
 
-Reads the file at the given path.
+Reads the file at the given path. Defaults to the file created by the app.
 
 ## Installation:
 

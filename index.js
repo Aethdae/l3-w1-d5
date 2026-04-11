@@ -2,17 +2,18 @@ import fs from "node:fs";
 
 const commands = ["a", "append", "r", "read"];
 const cliInput = process.argv.slice(2);
+const outputFile = "output.txt";
 
 cliInput.forEach((input, index) => {
   if (commands.includes(input)) {
     console.log(`Processing ${input}...`);
     if ((input == "a") | (input == "append")) {
       if (cliInput[index + 1]) {
-        if (!fs.existsSync("output.txt")) {
+        if (!fs.existsSync(outputFile)) {
           console.log("Creating file: 'output.txt'");
         }
         try {
-          fs.appendFile("output.txt", `\n${cliInput[index + 1]}`, (err) => {
+          fs.appendFile(outputFile, `\n${cliInput[index + 1]}`, (err) => {
             if (err) {
               throw new Error(err);
             }
@@ -44,7 +45,22 @@ cliInput.forEach((input, index) => {
           console.log(`File path doesn't exist at ${cliInput[index + 1]}`);
         }
       } else {
-        console.log(`No argument provided for ${cliInput[index]}`);
+        try {
+          if (fs.existsSync("output.txt")) {
+            fs.readFile("output.txt", "utf-8", (err, data) => {
+              if (err) {
+                throw new Error(err);
+              }
+              console.log(data);
+            });
+          } else {
+            console.log(
+              `No argument provided for ${cliInput[index]} or output.txt doesn't exist.`,
+            );
+          }
+        } catch (err) {
+          throw new Error(err);
+        }
       }
     }
   } else if (commands.includes(cliInput[index - 1])) {
