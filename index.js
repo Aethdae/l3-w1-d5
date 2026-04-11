@@ -46,8 +46,8 @@ cliInput.forEach((input, index) => {
         }
       } else {
         try {
-          if (fs.existsSync("output.txt")) {
-            fs.readFile("output.txt", "utf-8", (err, data) => {
+          if (fs.existsSync(outputFile)) {
+            fs.readFile(outputFile, "utf-8", (err, data) => {
               if (err) {
                 throw new Error(err);
               }
